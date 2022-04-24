@@ -3,7 +3,7 @@ package com.codinginflow.mvvmtodo.data
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.codinginflow.mvvmtodo.di.AppModule
+import com.codinginflow.mvvmtodo.di.AppModule.ApplicationScope
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -13,14 +13,20 @@ import javax.inject.Provider
 abstract class TaskDatabase : RoomDatabase() {
     abstract fun taskDao(): TaskDao
 
+
     class Callback @Inject constructor(
         private val database: Provider<TaskDatabase>,
-      @AppModule.ApplicationScope private val applicationScope: CoroutineScope
+
+       @ApplicationScope
+        private val applicationScope: CoroutineScope
+
     ) : RoomDatabase.Callback() {
+
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
 
             val dao = database.get().taskDao()
+
             applicationScope.launch {
                 dao.insert(Task("Design The App", important = true))
                 dao.insert(Task("Playing Game", completed = true))
