@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.Flow
 interface TaskDao {
 
 
-    @Query("SELECT * FROM task_table ")
-    fun getTask(): Flow<List<Task>>
+    @Query("SELECT * FROM task_table WHERE name LIKE  :searQuery || '%'  ORDER BY important DESC ")
+    fun getTask(searQuery:String): Flow<List<Task>>
 
     /**
     Here the onConflict = OnConflictStrategy.REPLACE is just a meta data
