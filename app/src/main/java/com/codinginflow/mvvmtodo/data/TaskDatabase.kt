@@ -31,6 +31,9 @@ abstract class TaskDatabase : RoomDatabase() {
                 dao.insert(Task("Design The App", important = true))
                 dao.insert(Task("Playing Game", completed = true))
                 dao.insert(Task("Exercise"))
+                dao.insert(Task("Reading"))
+                dao.insert(Task("Writing"))
+                dao.insert(Task("Eating"))
             }
 
 
