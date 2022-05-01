@@ -17,7 +17,7 @@ abstract class TaskDatabase : RoomDatabase() {
     class Callback @Inject constructor(
         private val database: Provider<TaskDatabase>,
 
-       @ApplicationScope
+        @ApplicationScope
         private val applicationScope: CoroutineScope
 
     ) : RoomDatabase.Callback() {
@@ -31,7 +31,7 @@ abstract class TaskDatabase : RoomDatabase() {
                 dao.insert(Task("Design The App", important = true))
                 dao.insert(Task("Playing Game", completed = true))
                 dao.insert(Task("Exercise"))
-                dao.insert(Task("Reading"))
+                dao.insert(Task("Reading", completed = true))
                 dao.insert(Task("Writing"))
                 dao.insert(Task("Eating"))
             }
