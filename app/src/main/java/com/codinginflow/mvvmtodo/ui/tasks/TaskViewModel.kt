@@ -92,5 +92,4 @@ class TaskViewModel @ViewModelInject constructor(
         data class ShowUndoDeleteTaskMessage(val task: Task) : TaskEvent()
         data class ShowTaskSavedConfirmationMessage(val msg: String) : TaskEvent()
     }
-
 }
