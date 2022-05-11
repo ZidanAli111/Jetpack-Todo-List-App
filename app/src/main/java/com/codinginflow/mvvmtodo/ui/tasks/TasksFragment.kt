@@ -55,7 +55,6 @@ class TasksFragment : Fragment(R.layout.fragment_tasks), TaskAdapter.OnItemClick
 
                     return false
                 }
-
                 override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
 
                     val task = taskAdapter.currentList[viewHolder.adapterPosition]
