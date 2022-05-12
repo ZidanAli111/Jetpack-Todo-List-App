@@ -14,10 +14,10 @@ class DeleteAllCompletedDialogFragment : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
         AlertDialog.Builder(requireContext())
-            .setTitle("Confirm Deletion")
-            .setMessage("Do you really want to delete All Task?")
+            .setTitle("Confirm deletion")
+            .setMessage("Do you really want to delete all completed tasks?")
             .setNegativeButton("Cancel", null)
-            .setPositiveButton("Confirm") { _, _ ->
+            .setPositiveButton("Yes") { _, _ ->
                 viewModel.onConfirmClick()
             }
             .create()
